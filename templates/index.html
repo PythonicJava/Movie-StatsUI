@@ -1,0 +1,850 @@
+<html lang="en" class="no-js"><!-- moviesingle07:38--><head>
+	<!-- Basic need -->
+	<title>Movie Reiview</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<link rel="profile" href="#">
+<script>
+    
+    </script>
+    <!--Google Font-->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600">
+	<!-- Mobile specific meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone-no">
+
+	<!-- CSS files -->
+	<link rel="stylesheet" href="static/css/plugins.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <head>
+
+        <style>
+            
+  .movie-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content:space-around;
+    }
+  .movie-content > div {
+    margin:20px;
+  }
+  #name{
+    color: white;
+  }
+  .card:hover, .poster{
+    -webkit-box-shadow: 0px 1px 15px 4px rgba(250,250,250,1);
+    -moz-box-shadow: 0px 1px 15px 4px rgba(250,250,250,1);
+    box-shadow: 0px 1px 15px 4px rgba(250,250,250,1);
+  }
+  .table td {
+    border-color: white;
+    border-style:solid; 
+    border-width:1px;
+  }
+
+  #mcontent {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  h6 {
+    margin-bottom: 20px;
+  }
+  @media only screen and (max-width: 650px) {
+    #mcontent {
+      display: block;
+    }
+    .poster-lg {
+      display: none;
+    }
+}
+
+  @media only screen and (min-width: 651px) {
+    .poster-sm {
+      display: none;
+    }
+
+
+        </style>
+    </head>
+
+<style type="text/css">.fancybox-margin{margin-right:16px;}</style></head>
+<body style="overflow: visible;">
+<!--preloading-->
+<div id="preloader" style="display: none;">
+    <img class="logo" src="static\images1\logo.png" alt="" width="119" height="58">
+    <div id="status" style="display: none;">
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<!-- CSSS FOR RECOMMEND-->
+<!--end of preloading-->
+<!--login form popup-->
+
+<!--end of login form popup-->
+
+<!--end of signup form popup-->
+
+<!-- BEGIN | Header -->
+<header class="ht-header">
+	<div class="container">
+		<nav class="navbar navbar-default navbar-custom">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header logo">
+				    <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					    <span class="sr-only">Toggle navigation</span>
+					    <div id="nav-icon1">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+				    </div>
+				    <a href="404.html"><img class="logo" src="static/images1/logo1.png" alt="" width="119" height="58"></a>
+			    </div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav flex-child-menu menu-left">
+						<li class="hidden">
+							<a href="#page-top"></a>
+						</li>
+						<li class="dropdown first">
+							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown">
+							Home <i class="fa fa-angle-down" aria-hidden="true"></i>
+							</a>
+							<ul class="dropdown-menu level1">
+								<li><a href="index-2.html">Home 01</a></li>
+								<li><a href="homev2.html">Home 02</a></li>
+								<li><a href="homev3.html">Home 03</a></li>
+							</ul>
+						</li>
+						<li class="dropdown first">
+							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+							movies<i class="fa fa-angle-down" aria-hidden="true"></i>
+							</a>
+							<ul class="dropdown-menu level1">
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Movie grid<i class="ion-ios-arrow-forward"></i></a>
+									<ul class="dropdown-menu level2">
+										<li><a href="	{{ url_for('dashboard')}}">Movie grid</a></li>
+										<li><a href="moviegridfw.html">movie grid full width</a></li>
+									</ul>
+								</li>			
+								<li><a href="movielist.html">Movie list</a></li>
+								<li><a href="moviesingle.html">Movie single</a></li>
+								<li class="it-last"><a href="seriessingle.html">Series single</a></li>
+							</ul>
+						</li>
+						<li class="dropdown first">
+							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+							celebrities <i class="fa fa-angle-down" aria-hidden="true"></i>
+							</a>
+							<ul class="dropdown-menu level1">
+								<li><a href="celebritygrid01.html">celebrity grid 01</a></li>
+								<li><a href="celebritygrid02.html">celebrity grid 02 </a></li>
+								<li><a href="celebritylist.html">celebrity list</a></li>
+								<li class="it-last"><a href="celebritysingle.html">celebrity single</a></li>
+							</ul>
+						</li>
+						<li class="dropdown first">
+							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+							news <i class="fa fa-angle-down" aria-hidden="true"></i>
+							</a>
+							<ul class="dropdown-menu level1">
+								<li><a href="bloglist.html">blog List</a></li>
+								<li><a href="bloggrid.html">blog Grid</a></li>
+								<li class="it-last"><a href="blogdetail.html">blog Detail</a></li>
+							</ul>
+						</li>
+						<li class="dropdown first">
+							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+							community <i class="fa fa-angle-down" aria-hidden="true"></i>
+							</a>
+							<ul class="dropdown-menu level1">
+								<li><a href="userfavoritegrid.html">user favorite grid</a></li>
+								<li><a href="userfavoritelist.html">user favorite list</a></li>
+								<li><a href="userprofile.html">user profile</a></li>
+								<li class="it-last"><a href="userrate.html">user rate</a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav flex-child-menu menu-right">
+						<li class="dropdown first">
+							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+							pages <i class="fa fa-angle-down" aria-hidden="true"></i>
+							</a>
+							<ul class="dropdown-menu level1">
+								<li><a href="landing.html">Landing</a></li>
+								<li><a href="404.html">404 Page</a></li>
+								<li class="it-last"><a href="comingsoon.html">Coming soon</a></li>
+							</ul>
+						</li>                
+						<li><a href="#">Help</a></li>
+						<li class="loginLink"><a href="#">LOG In</a></li>
+						<li class="btn signupLink"><a href="#">sign up</a></li>
+					</ul>
+				</div>
+			<!-- /.navbar-collapse -->
+	    </nav>
+	    
+
+
+{% block content %}
+
+{% if t=='s' %}
+
+  <div class="movie" style="border-color: #181818;width: 60%;color: #A8A8A8;" >
+    <center><h2>Sorry! This movie is not in our database.</h2>
+    <h2>Please check if you spelled it correct.</h2>
+    <h2>Or try with another movie.</h2></center>
+  </div>
+
+  {% else %}
+	    <!-- top search form -->
+	    <div class="top-search">
+	    	<select>
+				<option value="united">Movies</option>
+				<option value="saab">TV show</option>
+			</select>
+			<input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
+	    </div>
+	</div>
+</header>
+<!-- END | Header -->
+
+<div class="hero mv-single-hero">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- <h1> movie listing - list</h1>
+				<ul class="breadcumb">
+					<li class="active"><a href="#">Home</a></li>
+					<li> <span class="ion-ios-arrow-right"></span> movie listing</li>
+				</ul> -->
+			</div>
+		</div>
+	</div>
+</div>
+<div class="page-single movie-single movie_single">
+	<div class="container">
+		<div class="row ipad-width2">
+			<div class="col-md-4 col-sm-12 col-xs-12">
+				<div class="movie-img sticky-sb">
+					<img src={{ img_path }} >
+					<div class="movie-btn">	
+						<div class="btn-transform transform-vertical red">
+							<div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Watch Trailer</a></div>
+							<div><a href="https://www.youtube.com/embed/o-0hcF97wy0" class="item item-2 redbtn fancybox-media hvr-grow" rel="playlist"><i class="ion-play"></i></a></div>
+						</div>
+						<div class="btn-transform transform-vertical">
+							<div><a href="https://www.imdb.com/find?q={{result.title}}" class="item item-1 yellowbtn"> <i class="ion-card"></i>IMDB</a></div>
+							<div><a href="https://www.imdb.com/find?q={{result.title}}" class="item item-2 yellowbtn"><i class="ion-card"></i></a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8 col-sm-12 col-xs-12">
+				<div class="movie-single-ct main-content">
+					<h1 class="bd-hd">&nbsp;{{result.title}} <span>{{year}}</span></h1>
+					<div class="social-btn">
+						<a href="#" class="parent-btn"><i class="ion-heart"></i> Add to Favorite</a>
+						<div class="hover-bnt">
+							<a href="#" class="parent-btn"><i class="ion-android-share-alt"></i>share</a>
+							<div class="hvr-item">
+								<a href="#" class="hvr-grow"><i class="ion-social-facebook"></i></a>
+								<a href="#" class="hvr-grow"><i class="ion-social-twitter"></i></a>
+								<a href="#" class="hvr-grow"><i class="ion-social-googleplus"></i></a>
+								<a href="#" class="hvr-grow"><i class="ion-social-youtube"></i></a>
+							</div>
+						</div>		
+					</div>
+					<div class="movie-rate">
+						<div class="rate">
+							<i class="ion-android-star"></i>
+							<p> <span>&nbsp;{{result.vote_average}}</span>/10<br>
+								<span class="rv"> ({{vote_count}} votes)</span>
+							</p>
+                        </div>
+                        <!-- can ad popularity here  &nbsp;{{result.popularity}}-->
+						<div class="rate-star">
+							<p>Rate This Movie:  </p>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star-outline"></i>
+						</div>
+					</div>
+					<div class="movie-tabs">
+						<div class="tabs">
+							<ul class="tab-links tabs-mv">
+								<li class="active"><a href="#overview">Overview</a></li>
+								<li><a href="#reviews"> Reviews</a></li>
+								<li><a href="#cast">  Cast &amp; Crew </a></li>
+								<li><a href="#media"> Media</a></li> 
+								<li><a href="#moviesrelated"> Related Movies</a></li>                        
+							</ul>
+						    <div class="tab-content">
+						        <div id="overview" class="tab active">
+						            <div class="row">
+						            	<div class="col-md-8 col-sm-12 col-xs-12">
+						            		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{result.overview}}</p>
+						            		<div class="title-hd-sm">
+												<h4>Videos &amp; Photos</h4>
+												<a href="#" class="time">All 5 Videos &amp; 245 Photos <i class="ion-ios-arrow-right"></i></a>
+											</div>
+											<div class="mvsingle-item ov-item">
+												<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image11.jpg"><img src="static/images1/uploads/image1.jpg" alt=""></a>
+												<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image21.jpg"><img src="static/images1/uploads/image2.jpg" alt=""></a>
+												<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image31.jpg"><img src="static/images1/uploads/image3.jpg" alt=""></a>
+												<div class="vd-it">
+													<img class="vd-img" src="static/images1/uploads/image4.jpg" alt="">
+													<a class="fancybox-media hvr-grow" href="https://www.youtube.com/embed/o-0hcF97wy0" rel="playlist"><img src="static/images1/uploads/play-vd.png" alt=""></a>
+												</div>
+											</div>
+											<div class="title-hd-sm">
+												<h4>cast</h4>
+												<a href="#" class="time">Full Cast &amp; Crew  <i class="ion-ios-arrow-right"></i></a>
+											</div>
+											<!-- movie cast -->
+											<div class="mvcast-item">											
+												<div class="cast-it">
+													<div class="cast-left">
+														<img src="static/images1/uploads/cast1.jpg" alt="">
+														<a href="{{ url_for('error')}}">{{actor1}}.</a>
+													</div>
+													<p>...  {{actor1role}}</p>
+												</div>
+												<div class="cast-it">
+													<div class="cast-left">
+														<img src="static/images1/uploads/cast2.jpg" alt="">
+														<a href="#">{{actor2}}</a>
+													</div>
+													<p>...  {{actor2role}}</p>
+												</div>
+												<div class="cast-it">
+													<div class="cast-left">
+														<img src="static/images1/uploads/cast3.jpg" alt="">
+														<a href="#">{{actor3}}</a>
+													</div>
+													<p>...  {{actor3role}}</p>
+												</div>
+												
+												
+											</div>
+											<div class="title-hd-sm">
+												<h4>User reviews</h4>
+												<a href="#" class="time">See All 56 Reviews <i class="ion-ios-arrow-right"></i></a>
+											</div>
+											<!-- movie user review -->
+											<div class="mv-user-review-item">
+												<h3>Best  movie in my opinion</h3>
+												<div class="no-star">
+													<i class="ion-android-star"></i>
+													<i class="ion-android-star"></i>
+													<i class="ion-android-star"></i>
+													<i class="ion-android-star"></i>
+													<i class="ion-android-star"></i>
+													<i class="ion-android-star"></i>
+													<i class="ion-android-star"></i>
+													<i class="ion-android-star"></i>
+													<i class="ion-android-star"></i>
+													<i class="ion-android-star last"></i>
+												</div>
+												<p class="time">
+													17 December 2016 by <a href="#"> hawaiipierson</a>
+												</p>
+												<p>This is by far one of my favorite movies from the MCU. The introduction of new Characters both good and bad also makes the movie more exciting. giving the characters more of a back story can also help audiences relate more to different characters better, and it connects a bond between the audience and actors or characters. Having seen the movie three times does not bother me here as it is as thrilling and exciting every time I am watching it. In other words, the movie is by far better than previous movies (and I do love everything Marvel), the plotting is splendid (they really do out do themselves in each film, there are no problems watching it more than once.</p>
+											</div>
+						            	</div>
+						            	<div class="col-md-4 col-xs-12 col-sm-12">
+						            		<div class="sb-it">
+						            			<h6>Director: </h6>
+						            			<p><a href="#">{{director}}</a></p>
+						            		</div>
+						            		<div class="sb-it">
+						            			<h6>Writer: </h6>
+						            			<p><a href="#">Joss Whedon,</a> <a href="#">Stan Lee</a></p>
+						            		</div>
+						            		<div class="sb-it">
+						            			<h6>Stars: </h6>
+						            			<p><a href="#">{{actor1}},</a> <a href="#">{{actor2}},</a> <a href="#">{{actor3}}</a></p>
+						            		</div>
+						            		<div class="sb-it">
+						            			<h6>Genres:</h6>
+						            			<p><a href="#"> &nbsp;{{genres}} </a> </p>
+						            		</div>
+						            		<div class="sb-it">
+						            			<h6>Release Date:</h6>
+						            			<p>&nbsp;{{release_date}}</p>
+						            		</div>
+						            		<div class="sb-it">
+						            			<h6>Run Time:</h6>
+						            			<p> &nbsp;{{runtime}}</p>
+						            		</div>
+						            		<div class="sb-it">
+						            			<h6>Status</h6>
+						            			<p>&nbsp;{{status}}</p>
+						            		</div>
+						            		
+						            	
+						            	</div>
+						            </div>
+						        </div>
+						        <div id="reviews" class="tab review">
+						           <div class="row">
+						            	
+						            	
+										<div class="mv-user-review-item">
+                                            {% if reviews %}
+                                             <div class="col-md-12" style="margin: 0 auto; margin-top:25px;">
+                                                    <table class="table table-bordered" bordercolor="white" style="color:white">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="text-center" scope="col" style="width: 75%">Comments</th>
+                                                                <th class="text-center" scope="col">Sentiments</th>
+                                                            </tr>
+                                                        </thead>
+                                                
+                                                        <tbody>
+                                                  {% for review, status in reviews.items() if not reviews.hidden %}
+                                                  <tr style="">
+                                                          <td>{{review}}</td>
+                                                          <td><center>
+                                                              {{status}} : 
+                                                              {% if status =='Good' %}
+                                                                &#128515;
+                                                              {% else %}
+                                                                &#128534;
+                                                              {% endif %}
+                                                            </center>
+                                                          </td>
+                                                      </tr>
+                                                  {% endfor %}
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                            {% else %}
+                                            <div style="color:white;">
+                                              <h1 style="color:white"> This movie is not released yet. Stay tuned! </h1>
+                                            </div>
+                                            {% endif %}
+										</div>
+										
+										
+						            </div>
+						        </div>
+						        <div id="cast" class="tab">
+						        	<div class="row">
+						            	<h3>Cast &amp; Crew of</h3>
+					       	 			<h2>Avengers: Age of Ultron</h2>
+										<!-- //== -->
+					       	 			<div class="title-hd-sm">
+											<h4>Directors &amp; Credit Writers</h4>
+										</div>
+										<div class="mvcast-item">											
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>JW</h4>
+													<a href="#">Joss Whedon</a>
+												</div>
+												<p>...  Director</p>
+											</div>
+										</div>
+										<!-- //== -->
+										<div class="title-hd-sm">
+											<h4>Directors &amp; Credit Writers</h4>
+										</div>
+										<div class="mvcast-item">											
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>SL</h4>
+													<a href="#">Stan Lee</a>
+												</div>
+												<p>...  (based on Marvel comics)</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>JK</h4>
+													<a href="#">Jack Kirby</a>
+												</div>
+												<p>...  (based on Marvel comics)</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>JS</h4>
+													<a href="#">Joe Simon</a>
+												</div>
+												<p>...  (character created by: Captain America)</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>JS</h4>
+													<a href="#">Joe Simon</a>
+												</div>
+												<p>...  (character created by: Thanos)</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>RT</h4>
+													<a href="#">Roy Thomas</a>
+												</div>
+												<p>...  (character created by: Ultron, Vision)</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>JB</h4>
+													<a href="#">John Buscema</a>
+												</div>
+												<p>...  (character created by: Ultron, Vision)</p>
+											</div>
+										</div>
+										<!-- //== -->
+										<div class="title-hd-sm">
+											<h4>Cast</h4>
+										</div>
+										<div class="mvcast-item">											
+											<div class="cast-it">
+												<div class="cast-left">
+													<img src="static/images1/uploads/cast1.jpg" alt="">
+													<a href="#">Robert Downey Jr.</a>
+												</div>
+												<p>...  Robert Downey Jr.</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<img src="static/images1/uploads/cast2.jpg" alt="">
+													<a href="#">Chris Hemsworth</a>
+												</div>
+												<p>...  Thor</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<img src="static/images1/uploads/cast3.jpg" alt="">
+													<a href="#">Mark Ruffalo</a>
+												</div>
+												<p>...  Bruce Banner/ Hulk</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<img src="static/images1/uploads/cast4.jpg" alt="">
+													<a href="#">Chris Evans</a>
+												</div>
+												<p>...  Steve Rogers/ Captain America</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<img src="static/images1/uploads/cast5.jpg" alt="">
+													<a href="#">Scarlett Johansson</a>
+												</div>
+												<p>...  Natasha Romanoff/ Black Widow</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<img src="static/images1/uploads/cast6.jpg" alt="">
+													<a href="#">Jeremy Renner</a>
+												</div>
+												<p>...  Clint Barton/ Hawkeye</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<img src="static/images1/uploads/cast7.jpg" alt="">
+													<a href="#">James Spader</a>
+												</div>
+												<p>...  Ultron</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<img src="static/images1/uploads/cast9.jpg" alt="">
+													<a href="#">Don Cheadle</a>
+												</div>
+												<p>...  James Rhodes/ War Machine</p>
+											</div>
+										</div>
+										<!-- //== -->
+										<div class="title-hd-sm">
+											<h4>Produced by</h4>
+										</div>
+										<div class="mvcast-item">											
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>VA</h4>
+													<a href="#">Victoria Alonso</a>
+												</div>
+												<p>...  executive producer</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>MB</h4>
+													<a href="#">Mitchel Bell</a>
+												</div>
+												<p>...  co-producer (as Mitch Bell)</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>JC</h4>
+													<a href="#">Jamie Christopher</a>
+												</div>
+												<p>...  associate producer</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>LD</h4>
+													<a href="#">Louis D’Esposito</a>
+												</div>
+												<p>...  executive producer</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>JF</h4>
+													<a href="#">Jon Favreau</a>
+												</div>
+												<p>...  executive producer</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>KF</h4>
+													<a href="#">Kevin Feige</a>
+												</div>
+												<p>...  producer</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>AF</h4>
+													<a href="#">Alan Fine</a>
+												</div>
+												<p>...  executive producer</p>
+											</div>
+											<div class="cast-it">
+												<div class="cast-left">
+													<h4>JF</h4>
+													<a href="#">Jeffrey Ford</a>
+												</div>
+												<p>...  associate producer</p>
+											</div>
+										</div>
+						            </div>
+					       	 	</div>
+					       	 	<div id="media" class="tab">
+						        	<div class="row">
+						        		<div class="rv-hd">
+						            		<div>
+						            			<h3>Videos &amp; Photos of</h3>
+					       	 					<h2>Skyfall: Quantum of Spectre</h2>
+						            		</div>
+						            	</div>
+						            	<div class="title-hd-sm">
+											<h4>Videos <span>(8)</span></h4>
+										</div>
+										<div class="mvsingle-item media-item">
+											<div class="vd-item">
+												<div class="vd-it">
+													<img class="vd-img" src="static/images1/uploads/vd-item1.jpg" alt="">
+													<a class="fancybox-media hvr-grow" href="https://www.youtube.com/embed/o-0hcF97wy0" rel="playlist"><img src="static/images1/uploads/play-vd.png" alt=""></a>
+												</div>
+												<div class="vd-infor">
+													<h6> <a href="#">Trailer:  Watch New Scenes</a></h6>
+													<p class="time"> 1: 31</p>
+												</div>
+											</div>
+											<div class="vd-item">
+												<div class="vd-it">
+													<img class="vd-img" src="static/images1/uploads/vd-item2.jpg" alt="">
+													<a class="fancybox-media hvr-grow" href="https://www.youtube.com/embed/o-0hcF97wy0" rel="playlist"><img src="static/images1/uploads/play-vd.png" alt=""></a>
+												</div>
+												<div class="vd-infor">
+													<h6> <a href="#">Featurette: “Avengers Re-Assembled</a></h6>
+													<p class="time"> 1: 03</p>
+												</div>
+											</div>
+											<div class="vd-item">
+												<div class="vd-it">
+													<img class="vd-img" src="static/images1/uploads/vd-item3.jpg" alt="">
+													<a class="fancybox-media hvr-grow" href="https://www.youtube.com/embed/o-0hcF97wy0" rel="playlist"><img src="static/images1/uploads/play-vd.png" alt=""></a>
+												</div>
+												<div class="vd-infor">
+													<h6> <a href="#">Interview: Robert Downey Jr</a></h6>
+													<p class="time"> 3:27</p>
+												</div>
+											</div>
+											<div class="vd-item">
+												<div class="vd-it">
+													<img class="vd-img" src="static/images1/uploads/vd-item4.jpg" alt="">
+													<a class="fancybox-media hvr-grow" href="https://www.youtube.com/embed/o-0hcF97wy0" rel="playlist"><img src="static/images1/uploads/play-vd.png" alt=""></a>
+												</div>
+												<div class="vd-infor">
+													<h6> <a href="#">Interview: Scarlett Johansson</a></h6>
+													<p class="time"> 3:27</p>
+												</div>
+											</div>
+											<div class="vd-item">
+												<div class="vd-it">
+													<img class="vd-img" src="static/images1/uploads/vd-item1.jpg" alt="">
+													<a class="fancybox-media hvr-grow" href="https://www.youtube.com/embed/o-0hcF97wy0" rel="playlist"><img src="static/images1/uploads/play-vd.png" alt=""></a>
+												</div>
+												<div class="vd-infor">
+													<h6> <a href="#">Featurette: Meet Quicksilver &amp; The Scarlet Witch</a></h6>
+													<p class="time"> 1: 31</p>
+												</div>
+											</div>
+											<div class="vd-item">
+												<div class="vd-it">
+													<img class="vd-img" src="static/images1/uploads/vd-item2.jpg" alt="">
+													<a class="fancybox-media hvr-grow" href="https://www.youtube.com/embed/o-0hcF97wy0" rel="playlist"><img src="static/images1/uploads/play-vd.png" alt=""></a>
+												</div>
+												<div class="vd-infor">
+													<h6> <a href="#">Interview: Director Joss Whedon</a></h6>
+													<p class="time"> 1: 03</p>
+												</div>
+											</div>
+											<div class="vd-item">
+												<div class="vd-it">
+													<img class="vd-img" src="static/images1/uploads/vd-item3.jpg" alt="">
+													<a class="fancybox-media hvr-grow" href="https://www.youtube.com/embed/o-0hcF97wy0" rel="playlist"><img src="static/images1/uploads/play-vd.png" alt=""></a>
+												</div>
+												<div class="vd-infor">
+													<h6> <a href="#">Interview: Mark Ruffalo</a></h6>
+													<p class="time"> 3:27</p>
+												</div>
+											</div>
+											<div class="vd-item">
+												<div class="vd-it">
+													<img class="vd-img" src="static/images1/uploads/vd-item4.jpg" alt="">
+													<a class="fancybox-media hvr-grow" href="https://www.youtube.com/embed/o-0hcF97wy0" rel="playlist"><img src="static/images1/uploads/play-vd.png" alt=""></a>
+												</div>
+												<div class="vd-infor">
+													<h6> <a href="#">Official Trailer #2</a></h6>
+													<p class="time"> 3:27</p>
+												</div>
+											</div>
+										</div>
+										<div class="title-hd-sm">
+											<h4>Photos <span> (21)</span></h4>
+										</div>
+										<div class="mvsingle-item">
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image11.jpg"><img src="static/images1/uploads/image1.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image21.jpg"><img src="static/images1/uploads/image2.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image31.jpg"><img src="static/images1/uploads/image3.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image41.jpg"><img src="static/images1/uploads/image4.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image51.jpg"><img src="static/images1/uploads/image5.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image61.jpg"><img src="static/images1/uploads/image6.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image71.jpg"><img src="static/images1/uploads/image7.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image81.jpg"><img src="static/images1/uploads/image8.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image91.jpg"><img src="static/images1/uploads/image9.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image101.jpg"><img src="static/images1/uploads/image10.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image111.jpg"><img src="static/images1/uploads/image1-1.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image121.jpg"><img src="static/images1/uploads/image12.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image131.jpg"><img src="static/images1/uploads/image13.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image141.jpg"><img src="static/images1/uploads/image14.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image151.jpg"><img src="static/images1/uploads/image15.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image161.jpg"><img src="static/images1/uploads/image16.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image171.jpg"><img src="static/images1/uploads/image17.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image181.jpg"><img src="static/images1/uploads/image18.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image191.jpg"><img src="static/images1/uploads/image19.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image201.jpg"><img src="static/images1/uploads/image20.jpg" alt=""></a>
+											<a class="img-lightbox" data-fancybox-group="gallery" href="static/images1/uploads/image211.jpg"><img src="static/images1/uploads/image2-1.jpg" alt=""></a>
+										</div>
+						        	</div>
+					       	 	</div>
+					       	 	<div id="moviesrelated" class="tab">
+					       	 		<div class="row">
+					       	 			
+                                        <div class="movie-content">
+                                           
+                                            <div class="card" style="width: 14rem;" onclick="content(this)" title="{{title}}">
+                                              <img class="card-img-top" height="360" width="240" alt="Card image cap" src={{poster}}>
+                                              <div class="card-body">
+                                                <h5 class="card-title">{{title|capitalize}}</h5>
+                                              </div>
+                                            </div>
+                                       
+                                          </div>
+                                          {% endif %}
+                                        
+                                        {% endblock %}
+										</div>
+										
+					       	 		</div>
+					       	 	</div>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- footer section-->
+<footer class="ht-footer">
+	<div class="container">
+		<div class="flex-parent-ft">
+			<div class="flex-child-ft item1">
+				 <a href="index-2.html"><img class="logo" src="images/logo1.png" alt=""></a>
+				 <p>5th Avenue st, manhattan<br>
+				New York, NY 10001</p>
+				<p>Call us: <a href="#">(+01) 202 342 6789</a></p>
+			</div>
+			<div class="flex-child-ft item2">
+				<h4>Resources</h4>
+				<ul>
+					<li><a href="#">About</a></li> 
+					<li><a href="#">Blockbuster</a></li>
+					<li><a href="#">Contact Us</a></li>
+					<li><a href="#">Forums</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Help Center</a></li>
+				</ul>
+			</div>
+			<div class="flex-child-ft item3">
+				<h4>Legal</h4>
+				<ul>
+					<li><a href="#">Terms of Use</a></li> 
+					<li><a href="#">Privacy Policy</a></li>	
+					<li><a href="#">Security</a></li>
+				</ul>
+			</div>
+			<div class="flex-child-ft item4">
+				<h4>Account</h4>
+				<ul>
+					<li><a href="#">My Account</a></li> 
+					<li><a href="#">Watchlist</a></li>	
+					<li><a href="#">Collections</a></li>
+					<li><a href="#">User Guide</a></li>
+				</ul>
+			</div>
+			<div class="flex-child-ft item5">
+				<h4>Newsletter</h4>
+				<p>Subscribe to our newsletter system now <br> to get latest news from us.</p>
+				<form action="#">
+					<input type="text" placeholder="Enter your email...">
+				</form>
+				<a href="#" class="btn">Subscribe now <i class="ion-ios-arrow-forward"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="ft-copyright">
+		<div class="ft-left">
+			
+		</div>
+		<div class="backtotop">
+			<p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
+		</div>
+	</div>
+</footer>
+<!-- end of footer section-->
+
+<script src="static/js/jquery.js"></script>
+<script src="static/js/plugins.js"></script>
+<script src="static/js/plugins2.js"></script>
+<script src="static/js/custom.js"></script>
+<script src="static/content.js"></script>
+
+
+<!-- moviesingle11:03-->
+<iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe"></iframe></body></html>

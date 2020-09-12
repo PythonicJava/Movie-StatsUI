@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <title>MovieStat-Homepage</title>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <link rel="icon" type="image/png" href="static/favicon.png">
+ 
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+    <style>
+    
+    #autoComplete_wrapper {
+    
+    position: relative;
+    
+    display: inline-block
+    
+    }
+    
+    #autoComplete {
+    
+    position: relative;
+    
+    padding: 0 2rem 0 3.5rem;
+    
+    height: 2.1rem;
+    
+    width: 6rem;
+    
+    font-size: 1.2rem;
+    
+    outline: 0;
+    
+    border-radius: 50rem;
+    
+    border: .05rem solid #ff7a7a;
+    
+    caret-color: #ff7a7a;
+    
+    color: rgba(255, 255, 255, 0);
+    
+    background-image: url(./images/magnifier.svg);
+    
+    background-repeat: no-repeat;
+    
+    background-size: 1.2rem;
+    
+    background-origin: border-box;
+    
+    background-position: center;
+    
+    transition: all .4s ease;
+    
+    -webkit-transition: all -webkit-transform .4s ease;
+    
+    text-overflow: ellipsis
+    
+    }
+    
+    #autoComplete::placeholder {
+    
+    color: rgba(255, 122, 122, 0);
+    
+    transition:all .3s ease
+    
+    }
+    
+    #autoComplete:hover::placeholder {
+    
+    color: rgba(255, 122, 122, .3);
+    
+    transition:all .3s ease;
+    
+    -webkit-transition:all -webkit-transform .3s ease
+    
+    }
+    
+    #autoComplete:focus::placeholder {
+    
+    padding: .1rem .6rem;
+    
+    font-size:1rem;
+    
+    color:rgba(255, 122, 122, .3);
+    
+    transition:all .3s ease;
+    
+    -webkit-transition:all -webkit-transform .3s ease
+    
+    }
+    
+    #autoComplete::selection {
+    
+    color: transparent
+    
+    }
+    
+    #autoComplete:focus::selection {
+    
+    color: #fff;
+    
+    background-color:rgba(255,122, 122, 1)
+    
+    }
+    
+    #autoComplete:hover {
+    
+    padding: 0 2rem 0 3.5rem;
+    
+    color:#1d8cf8;
+    
+    height:3rem;
+    
+    width:16.5rem;
+    
+    
+    background-size:1.7rem;
+    
+    background-position:left 1.05rem top .7rem;
+    
+    transition:all .3s ease;
+    
+    -webkit-transition:all -webkit-transform .3s ease
+    
+    }
+    
+    #autoComplete:focus {
+    
+    padding: 0 2rem 0 3.5rem;
+    
+    color:rgba(255, 122, 122, 1);
+    
+    height:3rem;
+    
+    width:16.5rem;
+    
+    border:.05rem solid #ff7a7a;
+    
+    background-image:url(./images/magnifier.svg);
+    
+    background-size:1.5rem;
+    
+    background-position:left 1.05rem top .8rem;
+    
+    box-shadow:rgba(255, 122, 122, .1) 0 0 20px 5px
+    
+    }
+    
+    #autoComplete_list {
+    
+    position: fixed;
+    
+    z-index: 1000;
+    
+    padding: 0;
+    
+    left: 0;
+    
+    right: 0;
+    
+    margin-top: 0;
+    
+    margin-left: auto;
+    
+    margin-right: auto;
+    
+    width: 18rem;
+    
+    transition: all .1s ease-in-out;
+    
+    -webkit-transition: all -webkit-transform .1s ease
+    
+    }
+    
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    align-self: center;
+    padding-right: 35px;
+}
+    .autoComplete_result {
+    
+    margin: .15rem auto;
+    
+    padding: .6rem;
+    
+    max-width: 50%;
+    
+    border: .05rem solid #e3e3e3;
+    
+    list-style: none;
+    
+    text-align: left;
+    
+    font-size: 1.1rem;
+    
+    color: #7b7b7b;
+    
+    transition: all .1s ease-in-out;
+    
+    background-color: #fff
+    
+    }
+    
+    .autoComplete_result:hover {
+    
+    color: rgba(#fff, 0);
+    
+    background-color:white;
+    
+    }
+    
+    .autoComplete_result:last-child {
+    
+    border-radius: 0 0 1rem 1rem
+    
+    }
+    
+    .autoComplete_result:hover {
+    
+    cursor: pointer;
+    
+    background-color:rgba(255, 248, 248, .9);
+    
+    border-left:2px solid rgba(255, 122, 122, 1);
+    
+    border-right:2px solid rgba(255, 122, 122, 1);
+    
+    border-top:2px solid transparent;
+    
+    border-bottom:2px solid transparent
+    
+    }
+    
+    .autoComplete_result:focus {
+    
+    outline: 0;
+    
+    background-color:rgba(255, 248, 248, .9);
+    
+    border-left:2px solid#1d8cf8;
+    
+    border-right:2px solid#1d8cf8;
+    
+    border-top:2px solid transparent;
+    
+    border-bottom:2px solid transparent
+    
+    }
+    
+    .autoComplete_highlighted {
+    
+    opacity: 1;
+    
+    color: black;
+    
+    font-weight: 700
+    
+    }
+    
+    .autoComplete_highlighted::selection {
+    
+    color: rgba(#fff, 0);
+    
+    background-color:rgba(#fff, 0)
+    
+    }
+    
+    .autoComplete_selected {
+    
+    cursor: pointer;
+    
+    background-color: rgba(255, 248, 248, .9);
+    
+    border-left: 2px solid rgba(255, 122, 122, 1);
+    
+    border-right: 2px solid rgba(255, 122, 122, 1);
+    
+    border-top: 2px solid transparent;
+    
+    border-bottom: 2px solid transparent
+    
+    }
+    
+    @media only screen and (max-width: 600px) {
+    
+    #autoComplete {
+    
+        width: 5rem
+    
+    }
+    
+    #autoComplete:focus {
+    
+        width: 11rem;
+    
+        background-size:1.6rem;
+    
+        background-position:left 1.1rem top .75rem
+    
+    }
+    
+    .autoComplete_result:first-child {
+    
+        border-radius: 1rem 1rem 0 0
+    
+    }
+    
+    .autoComplete_result:last-child {
+    
+        border-radius: 0 0 1rem 1rem
+    
+    }
+    
+    .autoComplete_result:only-child {
+    
+        border-radius: 1rem
+    
+    }
+    
+    }
+    
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    
+    #autoComplete {
+    
+        border-width: 1px
+    
+    }
+    
+    #autoComplete:hover {
+    
+        border-width: 1px
+    
+    }
+    
+    #autoComplete:focus {
+    
+        border-width: 1px
+    
+    }
+    
+    }
+    
+    @-moz-document url-prefix() {
+    
+    #autoComplete {
+    
+        border-width: 1px;
+    
+        background-size: 1.2rem;
+    
+        background-origin: border-box;
+    
+        background-position: center
+    
+    }
+    
+    #autoComplete:hover {
+    
+        border-width: 1px
+    
+    }
+    
+    #autoComplete:focus {
+    
+        border-width: 1px;
+    
+        background-position: left 1.1rem top .8rem
+    
+    }
+    
+    }
+    
+    /*# sourceMappingURL=/sm/2bb3dcf548ec37c7de5c930474e8db20da4091fb846c9dd2fcdf9eac37ea959e.map */
+      </style>
+</style>
+  <style>
+  
+    /* Main styles */
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+    .text {
+      fill: none;
+      stroke-width: 3;
+      stroke-linejoin: round;
+      stroke-dasharray: 70 330;
+      stroke-dashoffset: 0;
+      -webkit-animation: stroke 6s infinite linear;
+      animation: stroke 6s infinite linear;
+    }
+    .text:nth-child(5n + 1) {
+      stroke: #F2385A;
+      -webkit-animation-delay: -1.2s;
+      animation-delay: -1.2s;
+    }
+    .text:nth-child(5n + 2) {
+      stroke: #F5A503;
+      -webkit-animation-delay: -2.4s;
+      animation-delay: -2.4s;
+    }
+    .text:nth-child(5n + 3) {
+      stroke: #E9F1DF;
+      -webkit-animation-delay: -3.6s;
+      animation-delay: -3.6s;
+    }
+    .text:nth-child(5n + 4) {
+      stroke: #56D9CD;
+      -webkit-animation-delay: -4.8s;
+      animation-delay: -4.8s;
+    }
+    .text:nth-child(5n + 5) {
+      stroke: #3AA1BF;
+      -webkit-animation-delay: -6s;
+      animation-delay: -6s;
+    }
+    
+    @-webkit-keyframes stroke {
+      100% {
+        stroke-dashoffset: -400;
+      }
+    }
+    @keyframes stroke {
+      100% {
+        stroke-dashoffset: -400;
+      }
+    }
+    /* Other styles */
+    
+    
+    body {
+
+      font: 5em/1 Open Sans, Impact;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    
+    svg {
+      margin-top: 0px;
+     
+    }
+    </style>
+
+  <style>
+  	.movie {
+      color: #fff;
+    	margin-left: auto;
+    	margin-right: auto;
+      resize: none;
+    }
+
+  	.btn-block{
+    	width: 15%;
+    	text-align: center;
+    	margin-left: auto;
+    	margin-right: auto;
+    	color: #e4e0e0;
+    }
+
+    #content {
+    	background-image: url("https://images.unsplash.com/photo-1517486518908-97a5f91b325f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
+    	background-color: #181818
+    }
+    .form-group {
+    margin-bottom: 0rem;
+}
+
+  	.footer {
+  		color: #e4e0e0;
+  		text-align:right;
+  		position: fixed;
+     	bottom: 20px;
+     	right: 20px;
+     	width: 100%;
+  	}
+
+    .card {
+      cursor: pointer;
+    }
+
+    h1 {
+	    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	    color: #e50914;
+	    font-weight: bold;
+	    margin-top: 30px;
+	 }
+
+    #autoComplete {
+      background-position: 780px ;
+    }
+
+  </style>
+<style class="INLINE_PEN_STYLESHEET_ID">
+  .twoToneCenter {
+text-align: center;
+margin: 1em 0;
+}
+.twoToneButton {
+  top: -50px;
+display: inline-block;
+border: 1px solid
+darken(@base,50%);
+display: block;
+text-align: center;
+cursor: pointer;
+text-transform: uppercase;
+outline: none;
+overflow: hidden;
+position: relative;
+color: #fff;
+font-weight: 700;
+font-size: 15px;
+background-color: transparent;
+padding: 17px 60px;
+margin: 0 auto;
+  border-radius: 5px;
+
+
+
+}
+
+
+
+
+
+.twoToneButton.spinning {
+background-color: transparent;
+padding-right: 40px;
+color: #03E9F4;
+}
+
+
+
+.twoToneButton.spinning:before {
+content: "";
+width: 0px;
+height: 0px;
+border-radius: 50%;
+right: 6px;
+top: 50%;
+position: absolute;
+border: 2px solid #000000;
+border-right: 3px solid #03E9F4;
+-webkit-animation: rotate360 0.5s infinite linear, exist 0.1s forwards ease;
+        animation: rotate360 0.5s infinite linear, exist 0.1s forwards ease;
+}
+@-webkit-keyframes rotate360 {
+100% {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+}
+
+
+
+@-webkit-keyframes exist {
+100% {
+  width: 15px;
+  height: 15px;
+  margin: -8px 5px 0 0;
+}
+}
+.twoToneButton:hover {
+  background: #03E9F4;
+  color: #F1EEE6;
+  
+  box-shadow: 0 0 5px #03E9F4,
+                           0 0 25px #03E9F4,
+                           0 0 50px #03E9F4,
+                           0 0 100px #03E9F4;
+}
+
+
+
+
+</style>
+  <script type="text/javascript">
+    var films = {{suggestions|tojson}};
+  </script>
+
+  <script type="text/javascript" src="{{url_for('static', filename='content.js')}}"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+</head>
+<body id="content" style="font-family: 'Noto Sans JP', sans-serif;">
+
+
+	<div class="ml-container" style="display: block;">
+    <center style="
+    height: 320px;
+">
+
+      <svg viewBox="0 0 600 300" style="
+    
+      /* height: 50%; */
+      width: 70%;
+  
+">
+
+        <symbol id="s-text">
+        <text text-anchor="middle" x="50%" y="50%" dy=".35em">MovieStats</text>
+        </symbol>
+        
+        <use class="text" xlink:href="#s-text"></use>
+        <use class="text" xlink:href="#s-text"></use>
+        <use class="text" xlink:href="#s-text"></use>
+        <use class="text" xlink:href="#s-text"></use>
+        <use class="text" xlink:href="#s-text"></use>
+        </svg>
+    </center>
+    <form name="myform" action="{{ url_for('recommend')}}" onsubmit="return validateForm()"  >
+			<div class="form-group shadow-textarea" style="margin-top: 30px;text-align: center;color: white;">
+			<input type="text" name="movie" class="movie form-control" id="autoComplete" autocomplete="off" placeholder="Enter the Movie Name" style="background-color: #ffffff;border-color:#ffffff;width: 60%;height:50px;color: #181818"/>
+		  <br>
+    </div>
+    
+<script>
+function validateForm() {
+  var x = document.forms["myform"]["movie"].value;
+  if (x == "") {
+    alert("Movie Name must be entered");
+    return false;
+  }
+}
+</script>
+    <div class="form-group" style="text-align: center;">
+      
+<button id="myBtn" class="twoToneButton" >Search</button>
+<br>
+<br>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script id="INLINE_PEN_JS_ID">
+  $(function () {
+
+
+
+var twoToneButton = document.querySelector('.twoToneButton');
+
+
+
+twoToneButton.addEventListener("click", function () {
+  twoToneButton.innerHTML = "Searching....";
+  twoToneButton.classList.add('spinning');
+
+
+
+  setTimeout(
+  function () {
+    twoToneButton.classList.remove('spinning');
+    twoToneButton.innerHTML = "Search";
+
+
+
+  }, 40000);
+}, false);
+
+
+
+});
+
+
+
+var input = document.getElementById("myInput");
+input.addEventListener("keyup", function(event) {
+if (event.keyCode === 13) {
+ event.preventDefault();
+ document.getElementById("myBtn").click();
+}
+});
+
+
+
+</script>
+
+<!--
+  <button type="submit" class="btn btn-primary btn-block" style="background-color: #e50914;text-align: center;border-color: #e50914;width:120px;">Enter</button><br><br>
+ --> </div>
+
+		
+	</form>
+		
+	</div>
+
+	<div class="results">
+
+		{% block content %}
+        {% endblock %}
+	</div>
+	<style>
+    .site-footer {
+  padding: 45px 0 20px;
+  font-size: 15px;
+  line-height: 24px;
+  color: #737373;
+}
+.site-footer hr {
+  border-top-color: #bbb;
+  opacity: 0.5;
+}
+.site-footer hr.small {
+  margin: 20px 0;
+}
+.site-footer h6 {
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  letter-spacing: 2px;
+}
+.site-footer a {
+  color: #737373;
+}
+.site-footer a:hover {
+  color: #3366cc;
+  text-decoration: none;
+}
+.footer-links {
+  padding-left: 0;
+  list-style: none;
+}
+.footer-links li {
+  display: block;
+}
+.footer-links a {
+  color: #737373;
+}
+.footer-links a:active,
+.footer-links a:focus,
+.footer-links a:hover {
+  color: #3366cc;
+  text-decoration: none;
+}
+.footer-links.inline li {
+  display: inline-block;
+}
+.site-footer .social-icons {
+  text-align: right;
+}
+.site-footer .social-icons a {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 6px;
+  margin-right: 0;
+  border-radius: 100%;
+}
+.copyright-text {
+  margin: 0;
+  color: white;
+}
+@media (max-width: 991px) {
+  .site-footer [class^="col-"] {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .site-footer {
+    padding-bottom: 0;
+  }
+  .site-footer .copyright-text,
+  .site-footer .social-icons {
+    text-align: center;
+  }
+}
+.social-icons {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.social-icons li {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.social-icons li.title {
+  margin-right: 15px;
+  text-transform: uppercase;
+  color: #96a2b2;
+  font-weight: 700;
+  font-size: 13px;
+}
+.social-icons a {
+    /* background-color: #eceeef; */
+    color: white;
+    font-size: 16px;
+    display: inline-block;
+    line-height: 44px;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    margin-right: 8px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+.social-icons a:active,
+.social-icons a:focus,
+.social-icons a:hover {
+  color: #fff;
+  background-color: #29aafe;
+}
+.social-icons.size-sm a {
+  line-height: 34px;
+  height: 34px;
+  width: 34px;
+  font-size: 14px;
+}
+.social-icons a.facebook:hover {
+  background-color: #dd4b39;
+}
+.social-icons a.twitter:hover {
+  background-color: #00aced;
+}
+.social-icons a.linkedin:hover {
+  background-color: #007bb6;
+}
+.social-icons a.dribbble:hover {
+  background-color: #ea4c89;
+}
+@media (max-width: 767px) {
+  .social-icons li.title {
+    display: block;
+    margin-right: 0;
+    font-weight: 600;
+  }
+}
+
+  </style>
+	  <!-- Site footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by 
+              <a style="color:white" href="https://www.linkedin.com/in/deep3110"><u>MovieStats.INC</u></a>.
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+               <li><a class="linkedin" href="https://www.linkedin.com/in/deep3110"  target="_blank"><i class="fa fa-linkedin"></i></a></li>
+              <li><a class="dribbble" href="https://github.com/deep-3110"  target="_blank"><i class="fa fa-github"></i></a></li>
+              <li><a class="facebook" href="deepshah3110@gmail.com" target="_blank" onclick="redirect()"><i class="fa fa-google-plus"></i></a></li>
+             
+              <script>
+                function redirect()
+{
+    window.location.href = "mailto:deepshah3110@gmail.com";
+}
+
+              </script>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+</footer>
+	<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/js/autoComplete.min.js"></script>
+  <script>
+    new autoComplete({
+    data: {                              // Data src [Array, Function, Async] | (REQUIRED)
+      src: films,
+    },
+    selector: "#autoComplete",           // Input field selector              | (Optional)
+    threshold: 1,                        // Min. Chars length to start Engine | (Optional)
+    debounce: 100,                       // Post duration for engine to start | (Optional)
+    searchEngine: "strict",              // Search Engine type/mode           | (Optional)
+    resultsList: {                       // Rendered results list object      | (Optional)
+        render: true,
+        container: source => {
+            source.setAttribute("id", "food_list");
+        },
+        destination: document.querySelector("#autoComplete"),
+        position: "afterend",
+        element: "ul"
+    },
+    maxResults: 7,                         // Max. number of rendered results | (Optional)
+    highlight: true,                       // Highlight matching results      | (Optional)
+    resultItem: {                          // Rendered result item            | (Optional)
+        content: (data, source) => {
+            source.innerHTML = data.match;
+        },
+        element: "li"
+    },
+    noResults: () => {                     // Action script on noResults      | (Optional)
+        const result = document.createElement("li");
+        result.setAttribute("class", "no_result");
+        result.setAttribute("tabindex", "1");
+        result.innerHTML = "No Results";
+        document.querySelector("#autoComplete_list").appendChild(result);
+    },
+    onSelection: feedback => {             // Action script onSelection event | (Optional)
+        document.getElementById('autoComplete').value = feedback.selection.value;
+    }
+});
+
+
+  </script>
+
+</body>
+</html>
